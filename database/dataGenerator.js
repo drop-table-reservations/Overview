@@ -41,7 +41,7 @@ let overview = restaurants.restaurants.map(function (restaurant) {
     dressCode: faker.company.bsAdjective(),
     executiveChef: faker.name.findName(),
     catering: faker.lorem.sentence(),
-    openGoogleMaps: faker.address.streetAddress() + faker.address.city() + faker.address.stateAbbr() + faker.address.zipCode(),
+    openGoogleMaps: `${faker.address.streetAddress()} ${faker.address.city()} ${faker.address.stateAbbr()}, ${faker.address.zipCode()}`,
     Neighborhood: faker.address.country(),
     crossStreet: faker.address.streetName() + ' + ' + faker.address.streetName(),
     parkingDetails: faker.lorem.sentence(),

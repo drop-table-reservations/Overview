@@ -10,10 +10,10 @@ class App extends React.Component {
     };
   }
 
-  // componentDidMount() {
-  //   axios.get('/30590734/overview')
-  //   .then(data => {console.log(data)});
-  // }
+  componentDidMount() {
+    axios.get('/restaurants/30590734/overview')
+    .then(data => {console.log(data)});
+  }
   
   render() {
     return (
