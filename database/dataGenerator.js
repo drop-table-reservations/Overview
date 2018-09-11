@@ -44,6 +44,7 @@ const overview = restaurants.restaurants.map(function (restaurant) {
       price: `$${randomNumber(10)} - $${randomNumber(50,10)}`,
       cuisines: faker.commerce.productAdjective(),
     },
+    description: faker.lorem.paragraph(),
     privateDining: 'view details',
     diningStyle: faker.company.catchPhraseAdjective(),
     cuisines: faker.commerce.productAdjective(),
