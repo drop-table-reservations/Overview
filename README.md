@@ -1,13 +1,11 @@
-# Project Name
+# Drop Table Reservations - Overview
 
-> Project description
+> The overview and menu modules for Drop Table Reservations, an Open Table clone
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/drop-table-reservations/reviews
+  - https://github.com/drop-table-reservations/photos
 
 ## Table of Contents
 
@@ -24,7 +22,11 @@
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - Node 6.13.0
-- etc
+- React: ^16.5.0
+- ReactDOM: ^16.5.0
+- 
+- Express ^4.16.3
+- Mongoose: ^5.2.13
 
 ## Development
 
