@@ -26,3 +26,4 @@ dist/
 
 public/bundle.js
 client/test.css
+database/seededData.json

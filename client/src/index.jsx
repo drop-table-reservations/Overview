@@ -9,7 +9,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: {},
+      data: {
+        header: {},
+        menus: {},
+      },
     };
   }
 
@@ -31,8 +34,8 @@ class App extends React.Component {
         <div>
           {this.state.data.description}
         </div>
-        <Overview />
-        <Menu />
+        <Overview info={this.state.data}/>
+        <Menu menus={this.state.data.menus}/>
       </div>
     );
   }
