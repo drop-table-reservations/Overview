@@ -1,32 +1,49 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-class Header extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  fillStars () {
-    let stars = [];
-    for (let i = 0; i < this.props.headerData.reviewAvg; i++) {
-      stars.push(<i className="fa fa-star"></i>)
+const Header = (props) => {
+  const fillStars = () => {
+    const { reviewAvg } = props.headerData;
+    const stars = [];
+    for (let i = 0; i < reviewAvg; i += 1) {
+      stars.push(<i className="fa fa-star" />);
     }
 
     while (stars.length < 5) {
-      stars.push(<i className="fa fa-star-o"></i>)
+      stars.push(<i className="fa fa-star-o" />);
     }
     return stars;
-  }
+  };
 
-  render () {
-    return (
-      <div className="header">
-        <span className="stars">{this.fillStars()} {this.props.headerData.reviewAvg}.0</span>
-        <span className="reviews"><i class="fa fa-comment-o"></i>  {this.props.headerData.reviews}</span>
-        <span className="price"><i class="fa fa-money"></i>  {this.props.headerData.price}</span>
-        <span className="cuisines"><i class="fa fa-cutlery"></i>  {this.props.headerData.cuisines}</span>
-      </div>
-    )
-  }
-}
+  const { headerData } = props;
+  return (
+    <div className="header">
+      <span className="stars">
+        {fillStars()}
+        {' '}
+        {`${headerData.reviewAvg}.0`}
+      </span>
+      <span className="reviews">
+        <i className="fa fa-comment-o" />
+        {' '}
+        {headerData.reviews}
+      </span>
+      <span className="price">
+        <i className="fa fa-money" />
+        {' '}
+        {headerData.price}
+      </span>
+      <span className="cuisines">
+        <i className="fa fa-cutlery" />
+        {' '}
+        {headerData.cuisines}
+      </span>
+    </div>
+  );
+};
+
+Header.propTypes = {
+  headerData: PropTypes.string.isRequired,
+};
 
 export default Header;

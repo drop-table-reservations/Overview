@@ -1,41 +1,38 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import Header from './header.jsx';
-import Overview from './overview.jsx';
-import Menu from './menu.jsx';
+import Header from './header';
+import Overview from './overview';
+import Menu from './menu';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       data: {
-        header: {},
-        menus: {},
+        header: { loading: 'loading...' },
+        menus: { loading: 'loading menus...' },
       },
     };
   }
 
-  componentWillMount() {
-    axios.get('/restaurants/30590734/overview')
-    .then(data => {
-      console.log(data.data[0]);
+  componentDidMount() {
+    axios.get('/restaurants/30590734/overview').then((data) => {
       this.setState({
-        data: data.data[0]
-      })
+        data: data.data[0],
+      });
     });
   }
-  
+
   render() {
+    const { data } = this.state;
     return (
       <div>
-        <h1>{this.state.data.name}</h1>
-        <Header headerData={this.state.data.header}/>
-        <div>
-          {this.state.data.description}
-        </div>
-        <Overview info={this.state.data}/>
-        <Menu menus={this.state.data.menus}/>
+        <h1>{data.name}</h1>
+        <Header headerData={data.header} />
+        <div>{data.description}</div>
+        <Overview info={data} />
+        <Menu menus={data.menus} />
       </div>
     );
   }

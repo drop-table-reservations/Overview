@@ -1,26 +1,26 @@
 const express = require('express');
-let app = express();
-const { findOverview } = require('../database/index.js')
+const path = require('path');
+const { findOverview } = require('../database/index.js');
 
-app.use(express.static(__dirname + '/../public'));
+const app = express();
+app.use(express.static(path.join(__dirname, '/../public')));
 
-app.get('/restaurants/:restaurantId/overview', function (req, res) {
+app.get('/restaurants/:restaurantId/overview', (req, res) => {
   const { restaurantId } = req.params;
   findOverview(restaurantId, (err, data) => {
     if (err) {
       console.log(err);
       res.status(500);
-      res.send('Error: ', err)
+      res.send('Error: ', err);
     } else {
       res.status(200);
       res.send(data);
     }
-
-  })
+  });
 });
 
-let port = 8008;
+const port = 8008;
 
-app.listen(port, function() {
+app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
