@@ -12,6 +12,7 @@ const overviewSchema = new mongoose.Schema({
     price: String,
     cuisines: String,
   },
+  description: String,
   privateDining: String,
   diningStyle: String,
   cuisines: String,

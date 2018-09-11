@@ -1,49 +1,46 @@
-var faker = require('faker');
-var restaurants = require('./restaurants.json');
-var fs = require('fs');
+const faker = require('faker');
+const fs = require('fs');
+const restaurants = require('./restaurants.json');
 
 let counter = 0;
 
-const randomNumber = (max, min = 0) => {
-  return Math.ceil(Math.random() * max) + min;
-};
+const randomNumber = (max, min = 0) => Math.ceil(Math.random() * max) + min;
 
 const createMenuEntry = (num) => {
-  let entries = [];
-  for (let i = 0; i < num; i++) {
+  const entries = [];
+  for (let i = 0; i < num; i += 1) {
     entries.push([faker.commerce.productName(), `$${randomNumber(50)}`]);
   }
 
   return entries;
-}
+};
 
 class Menu {
   constructor() {
     this.title = faker.company.bsBuzz();
-    this.menu = createMenuEntry(20,10);
+    this.menu = createMenuEntry(20, 10);
   }
 }
 
 const generateMenu = (num) => {
-  let menus = [];
-  for (let i = 0; i < num; i++) {
+  const menus = [];
+  for (let i = 0; i < num; i += 1) {
     menus.push(new Menu());
   }
 
   return menus;
 };
-
-const overview = restaurants.restaurants.map(function (restaurant) {
-
-  let obj = {
-    _id: restaurant._id,
+const overview = restaurants.restaurants.map((restaurant) => {
+  const obj = {
+    _id: restaurant.id,
     name: restaurant.name,
     header: {
       reviewAvg: randomNumber(5),
       reviews: randomNumber(1000),
-      price: `$${randomNumber(10)} - $${randomNumber(50,10)}`,
+      price: `$${randomNumber(10)} - $${randomNumber(50, 10)}`,
       cuisines: faker.commerce.productAdjective(),
     },
+    description: faker.lorem.paragraph(),
     privateDining: 'view details',
     diningStyle: faker.company.catchPhraseAdjective(),
     cuisines: faker.commerce.productAdjective(),
@@ -56,17 +53,15 @@ const overview = restaurants.restaurants.map(function (restaurant) {
     catering: faker.lorem.sentence(),
     openGoogleMaps: `${faker.address.streetAddress()} ${faker.address.city()} ${faker.address.stateAbbr()}, ${faker.address.zipCode()}`,
     Neighborhood: faker.address.country(),
-    crossStreet: faker.address.streetName() + ' + ' + faker.address.streetName(),
+    crossStreet: `${faker.address.streetName()} + ${faker.address.streetName()}`,
     parkingDetails: faker.lorem.sentence(),
     publicTransit: faker.lorem.sentence(),
     specialEvents: faker.lorem.sentences(),
     giftCards: faker.random.boolean(),
     entertainment: faker.lorem.sentences(),
     additional: faker.lorem.sentence(),
-    menus: generateMenu(randomNumber(5))
+    menus: generateMenu(randomNumber(5)),
   };
-
-
 
   if (counter % 3 === 0) {
     obj.giftCards = null;
@@ -80,7 +75,6 @@ const overview = restaurants.restaurants.map(function (restaurant) {
   return obj;
 });
 
-fs.writeFile('seededData.json', JSON.stringify(overview), 'utf8', function (err) {
+fs.writeFile('seededData.json', JSON.stringify(overview), 'utf8', (err) => {
   if (err) throw err;
-  console.log('success!')
 });

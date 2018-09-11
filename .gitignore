@@ -22,6 +22,6 @@ coverage
 
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 public/
-dist/
 
-public/bundle.js
+client/test.css
+database/seededData.json
