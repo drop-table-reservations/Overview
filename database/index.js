@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { overviewModel } = require('./models/overview.js');
+const { Overview } = require('./models/overview.js');
 
 mongoose.connect( 'mongodb://localhost:27017/DropTable',  { useNewUrlParser: true } );
 
@@ -11,8 +11,8 @@ db.once('open', function() {
   console.log('connected!');
 });
 
-const find = (id, callback) => {
-  overviewModel.find({_id: id})
+const findOverview = (id, callback) => {
+  Overview.find({_id: id})
   .exec(function(err, data) {
     if (err) {
       callback(err);
@@ -23,4 +23,4 @@ const find = (id, callback) => {
 }
 
 
-module.exports = { find }
+module.exports = { findOverview }

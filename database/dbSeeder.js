@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const seededData = require('./seededData.json');
-const { overviewModel } = require('./models/overview.js')
+const { Overview } = require('./models/overview.js')
 
 mongoose.connect( 'mongodb://localhost:27017/DropTable' );
 
@@ -15,10 +15,10 @@ db.once('open', function() {
 const overviews = [];
 
 seededData.forEach((seed) => {
-  overviews.push(new overviewModel(seed));
+  overviews.push(new Overview(seed));
 })
 
-overviewModel.insertMany(overviews)
+Overview.insertMany(overviews)
   .then(() => {
     console.log('Successfully created 100 entries in the database!');
     process.exit();

@@ -6,6 +6,12 @@ const overviewSchema = new mongoose.Schema({
     unique: true
   },
   name: String,
+  header: {
+    reviewAvg: Number,
+    reviews: Number,
+    price: String,
+    cuisines: String,
+  },
   privateDining: String,
   diningStyle: String,
   cuisines: String,
@@ -31,6 +37,6 @@ const overviewSchema = new mongoose.Schema({
   }]
 });
 
-const overviewModel = mongoose.model('overview', overviewSchema);
+const Overview = mongoose.model('overview', overviewSchema);
 
-module.exports.overviewModel = overviewModel;
+module.exports.Overview = Overview;
