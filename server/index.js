@@ -1,9 +1,6 @@
 const express = require('express');
 let app = express();
-const parser = require('body-parser');
 const { findOverview } = require('../database/index.js')
-
-app.use(parser.json());
 
 app.use(express.static(__dirname + '/../public'));
 
