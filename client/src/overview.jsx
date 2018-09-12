@@ -82,6 +82,13 @@ class Overview extends React.Component {
               {info.catering}
             </div>
           </div>
+          <div className="detail-box">
+            <i className="fa fa-calendar-plus-o" />
+            <div className="detail">
+              <div className="detail-title">Special Events*</div>
+              {info.specialEvents}
+            </div>
+          </div>
         </div>
         <div className="right-overview">
           <div className="detail-box">
@@ -117,13 +124,6 @@ class Overview extends React.Component {
             <div className="detail">
               <div className="detail-title">Public Transit*</div>
               {info.publicTransit}
-            </div>
-          </div>
-          <div className="detail-box">
-            <i className="fa fa-calendar-plus-o" />
-            <div className="detail">
-              <div className="detail-title">Special Events*</div>
-              {info.specialEvents}
             </div>
           </div>
           <div className="detail-box">

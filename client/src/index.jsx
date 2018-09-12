@@ -17,7 +17,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/restaurants/30590734/overview').then((data) => {
+    axios.get('/restaurants/90710284/overview').then((data) => {
       this.setState({
         data: data.data[0],
       });
