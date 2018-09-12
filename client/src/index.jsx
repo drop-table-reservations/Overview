@@ -30,7 +30,7 @@ class App extends React.Component {
       <div>
         <h1>{data.name}</h1>
         <Header headerData={data.header} />
-        <div>{data.description}</div>
+        <div className="description">{data.description}</div>
         <Overview info={data} />
         <Menu menus={data.menus} />
       </div>
