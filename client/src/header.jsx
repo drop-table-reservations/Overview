@@ -20,13 +20,11 @@ const Header = (props) => {
     <div className="header">
       <span className="stars">
         {fillStars()}
-        {' '}
-        {`${headerData.reviewAvg}.0`}
+        {` ${headerData.reviewAvg}.0`}
       </span>
       <span className="reviews">
         <i className="fa fa-comment-o" />
-        {' '}
-        {headerData.reviews}
+        {` ${headerData.reviews} reviews`}
       </span>
       <span className="price">
         <i className="fa fa-money" />
