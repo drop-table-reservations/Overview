@@ -28,20 +28,18 @@ const Header = (props) => {
       </span>
       <span className="price">
         <i className="fa fa-money" />
-        {' '}
-        {headerData.price}
+        {` ${headerData.price}`}
       </span>
       <span className="cuisines">
         <i className="fa fa-cutlery" />
-        {' '}
-        {headerData.cuisines}
+        {` ${headerData.cuisines}`}
       </span>
     </div>
   );
 };
 
 Header.propTypes = {
-  headerData: PropTypes.string.isRequired,
+  headerData: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default Header;
