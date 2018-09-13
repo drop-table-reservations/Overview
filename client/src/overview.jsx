@@ -10,7 +10,7 @@ class Overview extends React.Component {
   render() {
     const { info } = this.props;
     return (
-      <div className="content">
+      <div className="overview content">
         <div className="leftOverview">
           <div className="detail-box">
             <i className="fa fa-glass" />
@@ -154,7 +154,7 @@ class Overview extends React.Component {
 }
 
 Overview.propTypes = {
-  info: PropTypes.string.isRequired,
+  info: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default Overview;
