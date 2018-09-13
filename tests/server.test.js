@@ -1,7 +1,6 @@
 const axios = require('axios');
 
 describe('API Endpoint Testing', () => {
-  // Write tests for .../ratings enpoint
   describe('Test /restaurants/:restaurantId/overview endpoint', () => {
     test('should retrieve header info', async () => {
       try {
