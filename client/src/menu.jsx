@@ -7,10 +7,16 @@ class Menu extends React.Component {
     this.state = {
       active: 0,
     };
-    this.changeMenu = this.changeMenu.bind(this);
+    this.setActiveMenu = this.setActiveMenu.bind(this);
   }
 
-  createMenus() {
+  setActiveMenu(value) {
+    this.setState({
+      active: value,
+    });
+  }
+
+  createMenuButtons() {
     const { menus } = this.props;
     const { active } = this.state;
     return menus.map((menu, index) => (
@@ -25,13 +31,7 @@ class Menu extends React.Component {
     ));
   }
 
-  changeMenu(value) {
-    this.setState({
-      active: value,
-    });
-  }
-
-  populateMenu() {
+  populateMenuItems() {
     const { menus } = this.props;
     const { active } = this.state;
     return menus[active].menu.map(item => (
@@ -46,8 +46,8 @@ class Menu extends React.Component {
     return (
       <div className="menu">
         <h3>Menu</h3>
-        <div className="menu-titles">{this.createMenus()}</div>
-        <div className="menu-list">{this.populateMenu()}</div>
+        <div className="menu-titles">{this.createMenuButtons()}</div>
+        <div className="menu-list">{this.populateMenuItems()}</div>
       </div>
     );
   }
