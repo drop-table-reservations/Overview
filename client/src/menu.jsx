@@ -24,7 +24,7 @@ class Menu extends React.Component {
         type="button"
         className={active === index ? 'active menu-button' : 'menu-button'}
         id={`${menu.title}`}
-        onClick={() => this.changeMenu(index)}
+        onClick={() => this.setActiveMenu(index)}
       >
         {menu.title}
       </button>
