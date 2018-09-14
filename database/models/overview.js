@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const overviewSchema = new mongoose.Schema({
   _id: {
     type: Number,
-    unique: true
+    unique: true,
   },
   name: String,
   header: {
@@ -34,8 +34,8 @@ const overviewSchema = new mongoose.Schema({
   additional: String,
   menus: [{
     title: String,
-    menu: String
-  }]
+    menu: [Array],
+  }],
 });
 
 const Overview = mongoose.model('overview', overviewSchema);
