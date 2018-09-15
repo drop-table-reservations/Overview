@@ -10,18 +10,33 @@ class Overview extends React.Component {
     };
   }
 
+  handleExpansion() {
+    const { collapsed } = this.state;
+    this.setState({
+      collapsed: !collapsed,
+    });
+  }
+
+  renderButton() {
+    const { collapsed } = this.state;
+    return collapsed
+      ? <button type="button" className="expand-overview" onClick={() => this.handleExpansion()}>View All Details</button>
+      : <div />;
+  }
+
   render() {
     const { info } = this.props;
+    const { collapsed } = this.state;
     return (
       <div className="overview">
         <Description description={info.description} />
-        <div className="overview-content">
+        <div className={collapsed ? 'overview-collapsed' : 'overview-content'}>
           <div className="leftOverview">
             <div className="detail-box">
               <i className="fa fa-glass" />
               <div className="detail">
                 <div className="detail-title">Private Dining</div>
-                {info.privateDining}
+                <div className="dining">{info.privateDining}</div>
               </div>
             </div>
             <div className="detail-box">
@@ -99,8 +114,7 @@ class Overview extends React.Component {
             <div className="detail-box">
               <i className="fa fa-map-o" />
               <div className="detail">
-                <div className="detail-title">Google Maps</div>
-                {info.openGoogleMaps}
+                <div className="detail-title map-address">{info.openGoogleMaps}</div>
               </div>
             </div>
             <div className="detail-box">
@@ -154,6 +168,7 @@ class Overview extends React.Component {
             </div>
           </div>
         </div>
+        <div>{this.renderButton()}</div>
       </div>
     );
   }
