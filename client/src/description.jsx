@@ -12,8 +12,7 @@ class Description extends Component {
   }
 
   changeSize() {
-    const { clamped } = this.state;
-    const { readText } = this.state;
+    const { clamped, readText } = this.state;
     this.setState({
       clamped: !clamped,
       readText: readText === '+ Read More' ? '- Read Less' : '+ Read More',
@@ -22,8 +21,7 @@ class Description extends Component {
 
   render() {
     const { description } = this.props;
-    const { clamped } = this.state;
-    const { readText } = this.state;
+    const { clamped, readText } = this.state;
     return (
       <div className="description">
         <div className={clamped ? 'description-body clamped' : 'description-body'}>{description}</div>
