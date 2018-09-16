@@ -17,8 +17,8 @@ const createMenuEntry = (num) => {
 
 class Menu {
   constructor() {
-    this.title = faker.company.bsBuzz();
-    this.menu = createMenuEntry(20, 10);
+    this.title = `${faker.company.catchPhraseAdjective()} Menu`;
+    this.menu = createMenuEntry(randomNumber(40, 20));
   }
 }
 
@@ -40,7 +40,7 @@ const overview = restaurants.restaurants.map((restaurant) => {
       price: `$${randomNumber(10)} - $${randomNumber(50, 10)}`,
       cuisines: faker.commerce.productAdjective(),
     },
-    description: faker.lorem.paragraph(),
+    description: faker.lorem.paragraphs(),
     privateDining: 'view details',
     diningStyle: faker.company.catchPhraseAdjective(),
     cuisines: faker.commerce.productAdjective(),
@@ -60,7 +60,7 @@ const overview = restaurants.restaurants.map((restaurant) => {
     giftCards: faker.random.boolean(),
     entertainment: faker.lorem.sentences(),
     additional: faker.lorem.sentence(),
-    menus: generateMenu(randomNumber(5)),
+    menus: generateMenu(randomNumber(6)),
   };
 
   if (counter % 3 === 0) {

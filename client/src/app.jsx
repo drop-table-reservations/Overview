@@ -10,13 +10,16 @@ class App extends React.Component {
     this.state = {
       data: {
         header: { loading: 'loading...' },
-        menus: { loading: 'loading menus...' },
+        menus: [{
+          title: 'loading',
+          menu: [['loading', 'loading']],
+        }],
       },
     };
   }
 
   componentDidMount() {
-    axios.get('/restaurants/30590734/overview').then((data) => {
+    axios.get('/restaurants/90300808/overview').then((data) => {
       this.setState({
         data: data.data[0],
       });

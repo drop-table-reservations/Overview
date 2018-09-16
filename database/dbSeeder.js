@@ -24,5 +24,6 @@ Overview.insertMany(overviews)
     process.exit();
   })
   .catch((err) => {
+    console.log(err);
     throw err;
   });
