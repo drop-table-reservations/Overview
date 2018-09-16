@@ -66,10 +66,10 @@ class Overview extends Component {
 
     return (
       <div className={collapsed ? 'overview-collapsed' : 'overview-content'}>
-        <div className="leftOverview">
+        <div className="left-overview">
           {mapper(leftContent)}
         </div>
-        <div className="rightOverview">
+        <div className="right-overview">
           {mapper(rightContent)}
         </div>
       </div>
