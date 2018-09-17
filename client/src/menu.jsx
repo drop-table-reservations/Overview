@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class Menu extends React.Component {
+class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
       active: 0,
+      collapsed: true,
+      buttonText: 'View Full Menu',
     };
     this.setActiveMenu = this.setActiveMenu.bind(this);
   }
@@ -24,7 +26,7 @@ class Menu extends React.Component {
         type="button"
         className={active === index ? 'active menu-button' : 'menu-button'}
         id={`${menu.title}`}
-        onClick={() => this.changeMenu(index)}
+        onClick={() => this.setActiveMenu(index)}
       >
         {menu.title}
       </button>
@@ -42,12 +44,24 @@ class Menu extends React.Component {
     ));
   }
 
+  handleExpansion() {
+    const { collapsed, buttonText } = this.state;
+    this.setState({
+      collapsed: !collapsed,
+      buttonText: buttonText === 'View Full Menu' ? 'Collapse Menu' : 'View Full Menu',
+    });
+  }
+
   render() {
+    const { collapsed, buttonText } = this.state;
     return (
       <div className="menu">
         <h3>Menu</h3>
         <div className="menu-titles">{this.createMenuButtons()}</div>
-        <div className="menu-list">{this.populateMenuItems()}</div>
+        <div className={collapsed ? 'menu-collapsed' : 'menu-list'}>{this.populateMenuItems()}</div>
+        <div className="button-box">
+          <button type="button" className="expand-button" onClick={() => this.handleExpansion()}>{buttonText}</button>
+        </div>
       </div>
     );
   }
