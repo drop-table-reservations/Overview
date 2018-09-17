@@ -20,6 +20,7 @@ class Overview extends Component {
   createDetails() {
     const { info } = this.props;
     const { collapsed } = this.state;
+
     const leftContent = [
       [info.privateDining, 'fa fa-coffee', 'Private Dining'],
       [info.diningStyle, 'fa fa-glass', 'Dining Style'],

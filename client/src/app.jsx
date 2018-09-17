@@ -12,7 +12,7 @@ class App extends Component {
         header: { loading: 'loading...' },
         menus: [{
           title: 'loading',
-          menu: [['loading', 'loading']],
+          menu: [],
         }],
       },
     };

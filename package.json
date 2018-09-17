@@ -7,7 +7,7 @@
     "react-dev": "webpack --watch",
     "server-dev": "nodemon server/index.js",
     "lint": "eslint .",
-    "test": "jest --detectOpenHandles"
+    "test": "jest --coverage"
   },
   "author": "GaoR",
   "license": "ISC",
