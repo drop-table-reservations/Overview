@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Description from './description';
+import GoogleMaps from './googleMaps';
 
 class Overview extends Component {
   constructor(props) {
@@ -36,7 +37,7 @@ class Overview extends Component {
     ];
 
     const rightContent = [
-      [info.openGoogleMaps, 'fa fa-map-o', 'Open Google Maps'],
+      [info.openGoogleMaps, '', <GoogleMaps />],
       [info.Neighborhood, 'fa fa-building-o', 'Neighborhood'],
       [info.crossStreet, 'fa fa-road', 'Cross Street'],
       [info.parkingDetails, 'fa fa-product-hunt', 'Parking Details'],

@@ -3,6 +3,7 @@ import axios from 'axios';
 import Header from './header';
 import Overview from './overview';
 import Menu from './menu';
+import { Container } from './styles';
 
 class App extends Component {
   constructor(props) {
@@ -29,12 +30,12 @@ class App extends Component {
   render() {
     const { data } = this.state;
     return (
-      <div className="app">
+      <Container>
         <h1>{data.name}</h1>
         <Header headerData={data.header} />
         <Overview info={data} />
         <Menu menus={data.menus} />
-      </div>
+      </Container>
     );
   }
 }
