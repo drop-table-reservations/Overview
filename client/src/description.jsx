@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { DescriptionBody, DescriptionClamped, ReadMore } from './styles';
 
 class Description extends Component {
   constructor(props) {
@@ -24,9 +25,11 @@ class Description extends Component {
     const { clamped, readText } = this.state;
     return (
       <div className="description">
-        <div className={clamped ? 'description-body clamped' : 'description-body'}>{description}</div>
+        {clamped
+          ? <DescriptionClamped>{description}</DescriptionClamped>
+          : <DescriptionBody>{description}</DescriptionBody>}
         <div>
-          <button type="button" className="read-more" onClick={() => this.changeSize()}>{readText}</button>
+          <ReadMore onClick={() => this.changeSize()}>{readText}</ReadMore>
         </div>
       </div>
     );

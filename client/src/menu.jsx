@@ -1,5 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import {
+  ExpandButton,
+  Items,
+  Active,
+  MenuButton,
+  MenuTitles,
+  MenuList,
+  MenuCollapsed,
+  ButtonBox,
+} from './styles';
 
 class Menu extends Component {
   constructor(props) {
@@ -22,14 +32,9 @@ class Menu extends Component {
     const { menus } = this.props;
     const { active } = this.state;
     return menus.map((menu, index) => (
-      <button
-        type="button"
-        className={active === index ? 'active menu-button' : 'menu-button'}
-        id={`${menu.title}`}
-        onClick={() => this.setActiveMenu(index)}
-      >
-        {menu.title}
-      </button>
+      active === index
+        ? <Active id={`${menu.title}`} onClick={() => this.setActiveMenu(index)}>{menu.title}</Active>
+        : <MenuButton id={`${menu.title}`} onClick={() => this.setActiveMenu(index)}>{menu.title}</MenuButton>
     ));
   }
 
@@ -37,10 +42,10 @@ class Menu extends Component {
     const { menus } = this.props;
     const { active } = this.state;
     return menus[active].menu.map(item => (
-      <div className="items">
+      <Items>
         <span>{item[0]}</span>
         <span>{item[1]}</span>
-      </div>
+      </Items>
     ));
   }
 
@@ -57,11 +62,14 @@ class Menu extends Component {
     return (
       <div className="menu">
         <h3>Menu</h3>
-        <div className="menu-titles">{this.createMenuButtons()}</div>
-        <div className={collapsed ? 'menu-collapsed' : 'menu-list'}>{this.populateMenuItems()}</div>
-        <div className="button-box">
-          <button type="button" className="expand-button" onClick={() => this.handleExpansion()}>{buttonText}</button>
-        </div>
+        <MenuTitles>{this.createMenuButtons()}</MenuTitles>
+        {collapsed
+          ? <MenuCollapsed>{this.populateMenuItems()}</MenuCollapsed>
+          : <MenuList>{this.populateMenuItems()}</MenuList>
+        }
+        <ButtonBox>
+          <ExpandButton onClick={() => this.handleExpansion()}>{buttonText}</ExpandButton>
+        </ButtonBox>
       </div>
     );
   }
