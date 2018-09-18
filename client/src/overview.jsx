@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Description from './description';
 import GoogleMaps from './googleMaps';
+import {
+  StyledOverview,
+  OverviewCollapsed,
+  OverviewContent,
+  Detail,
+  DetailTitle,
+  DetailBox,
+  Fa,
+  ExpandButton,
+} from './styles';
 
 class Overview extends Component {
   constructor(props) {
@@ -54,45 +64,48 @@ class Overview extends Component {
         const title = detail[2];
         if (content) {
           return (
-            <div className="detail-box">
-              <i className={iconName} />
-              <div className="detail">
-                <div className="detail-title">{title}</div>
+            <DetailBox>
+              <Fa className={iconName} />
+              <Detail>
+                <DetailTitle>{title}</DetailTitle>
                 <div>{content}</div>
-              </div>
-            </div>
+              </Detail>
+            </DetailBox>
           );
         }
         return <div />;
-      }));
+      })
+    );
+
+    const Container = collapsed ? OverviewCollapsed : OverviewContent;
 
     return (
-      <div className={collapsed ? 'overview-collapsed' : 'overview-content'}>
+      <Container>
         <div className="left-overview">
           {mapper(leftContent)}
         </div>
         <div className="right-overview">
           {mapper(rightContent)}
         </div>
-      </div>
+      </Container>
     );
   }
 
   renderButton() {
     const { collapsed } = this.state;
     return collapsed
-      ? <button type="button" className="expand-button" onClick={() => this.handleExpansion()}>View All Details</button>
+      ? <ExpandButton onClick={() => this.handleExpansion()}>View All Details</ExpandButton>
       : <div />;
   }
 
   render() {
     const { info } = this.props;
     return (
-      <div className="overview">
+      <StyledOverview>
         <Description description={info.description} />
         {this.createDetails()}
         <div>{this.renderButton()}</div>
-      </div>
+      </StyledOverview>
     );
   }
 }
