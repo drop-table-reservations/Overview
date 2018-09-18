@@ -4,4 +4,4 @@ import './globalStyles';
 import App from './app';
 
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('overview'));

@@ -14,6 +14,7 @@ export const Container = styled.div`
 `;
 
 export const H1 = styled.h1`
+  font-size: 32px;
   padding-bottom: 20px;
   border-bottom: 1px solid #d8d9db;
 `;
@@ -130,6 +131,11 @@ export const ExpandButton = styled.button`
   &:focus {
     outline: 0;
   }
+`;
+
+export const H3 = styled.h3`
+  font-size: 24px;
+  margin-bottom: 16px;
 `;
 
 export const Items = styled.div`

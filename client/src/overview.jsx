@@ -81,10 +81,10 @@ class Overview extends Component {
 
     return (
       <Container>
-        <div className="left-overview">
+        <div>
           {mapper(leftContent)}
         </div>
-        <div className="right-overview">
+        <div>
           {mapper(rightContent)}
         </div>
       </Container>
