@@ -101,6 +101,8 @@ export const DetailBox = styled.div`
 `;
 
 export const DetailTitle = styled.div`
+  padding-top: 5px;
+  padding-bottom: 5px;
   font-weight: 600;
 `;
 

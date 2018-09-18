@@ -1,4 +1,5 @@
 import { injectGlobal } from 'styled-components';
+import reset from 'styled-reset';
 
 injectGlobal`
   @font-face {
@@ -6,7 +7,5 @@ injectGlobal`
     src: url(https://cdn.otstatic.com/common/font/Brandon/Brandon_txt_reg-webfont.woff2) format("truetype");
   }
 
-  body {
-    margin: 0;
-  }
+  ${reset}
 `;

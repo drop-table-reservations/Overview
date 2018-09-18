@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:8008/restaurants/90300808/overview').then((data) => {
+    axios.get(`${window.location.href}overview`).then((data) => {
       this.setState({
         data: data.data[0],
       });
