@@ -1,14 +1,13 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const { findOverview } = require('../database/index.js');
 
 const app = express();
 app.use(cors());
-app.use(express.static('public'));
-app.use('/restaurants/:restaurantId', express.static('public'));
 
 
-app.get('/restaurants/:restaurantId/overview', (req, res) => {
+app.get('/api/restaurants/:restaurantId/overview', (req, res) => {
   const { restaurantId } = req.params;
   findOverview(restaurantId, (err, data) => {
     if (err) {
@@ -20,6 +19,14 @@ app.get('/restaurants/:restaurantId/overview', (req, res) => {
       res.send(data);
     }
   });
+});
+
+app.get('/bundle.js', (req, res) => {
+  res.sendFile(path.resolve('public/bundle.js'));
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve('public/index.html'));
 });
 
 const port = 8008;

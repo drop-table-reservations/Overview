@@ -23,7 +23,7 @@ class App extends Component {
   componentDidMount() {
     const { match } = this.props;
     const { id } = match.params;
-    axios.get(`/restaurants/${id}/overview`).then((data) => {
+    axios.get(`/api/restaurants/${id}/overview`).then((data) => {
       this.setState({
         data: data.data[0],
       });
