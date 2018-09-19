@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-describe('API Endpoint Testing', () => {
+describe('API Endpoint Integration Testing', () => {
   describe('Test /restaurants/:restaurantId/overview endpoint', () => {
     test('should retrieve header info', async () => {
       const { data } = await axios.get('http://localhost:8008/restaurants/30590734/overview');
