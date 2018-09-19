@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 import Header from './header';
 import Overview from './overview';
@@ -10,9 +11,9 @@ class App extends Component {
     super(props);
     this.state = {
       data: {
-        header: { loading: 'loading...' },
+        header: { loading: 'LOADING' },
         menus: [{
-          title: 'loading',
+          title: '',
           menu: [],
         }],
       },
@@ -20,8 +21,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const pathname = 'http://localhost:3000/restaurants/30590734/';
-    axios.get(`${pathname}overview`).then((data) => {
+    const { match } = this.props;
+    const { id } = match.params;
+    axios.get(`/restaurants/${id}/overview`).then((data) => {
       this.setState({
         data: data.data[0],
       });
@@ -40,5 +42,9 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  match: PropTypes.instanceOf(Object).isRequired,
+};
 
 export default App;

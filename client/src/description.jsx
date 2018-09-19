@@ -24,12 +24,12 @@ class Description extends Component {
     const { description } = this.props;
     const { clamped, readText } = this.state;
     return (
-      <div className="description">
+      <div>
         {clamped
           ? <DescriptionClamped>{description}</DescriptionClamped>
           : <DescriptionBody>{description}</DescriptionBody>}
         <div>
-          <ReadMore onClick={() => this.changeSize()}>{readText}</ReadMore>
+          <ReadMore onClick={this.changeSize}>{readText}</ReadMore>
         </div>
       </div>
     );
