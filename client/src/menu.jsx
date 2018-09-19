@@ -9,6 +9,7 @@ import {
   MenuList,
   MenuCollapsed,
   ButtonBox,
+  H3,
 } from './styles';
 
 class Menu extends Component {
@@ -60,8 +61,8 @@ class Menu extends Component {
   render() {
     const { collapsed, buttonText } = this.state;
     return (
-      <div className="menu">
-        <h3>Menu</h3>
+      <div>
+        <H3>Menu</H3>
         <MenuTitles>{this.createMenuButtons()}</MenuTitles>
         {collapsed
           ? <MenuCollapsed>{this.populateMenuItems()}</MenuCollapsed>

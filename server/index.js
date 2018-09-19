@@ -1,9 +1,14 @@
 const express = require('express');
 const path = require('path');
+const cors = require('cors');
 const { findOverview } = require('../database/index.js');
 
+
 const app = express();
+app.use(cors());
 app.use(express.static(path.join(__dirname, '/../public')));
+app.use('/restaurants/:restaurantId', express.static(path.join(__dirname, '/../public')));
+
 
 app.get('/restaurants/:restaurantId/overview', (req, res) => {
   const { restaurantId } = req.params;

@@ -19,19 +19,19 @@ const Header = (props) => {
   const { headerData } = props;
   return (
     <StyledHeader>
-      <span className="stars">
+      <span>
         {fillStars()}
         {` ${headerData.reviewAvg}.0`}
       </span>
-      <span className="reviews">
+      <span>
         <Fa className="fa fa-comment-o" />
         {` ${headerData.reviews} reviews`}
       </span>
-      <span className="price">
+      <span>
         <Fa className="fa fa-money" />
         {` ${headerData.price}`}
       </span>
-      <span className="cuisines">
+      <span>
         <Fa className="fa fa-cutlery" />
         {` ${headerData.cuisines}`}
       </span>
