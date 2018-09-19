@@ -6,6 +6,7 @@
   "scripts": {
     "react-dev": "webpack --watch",
     "server-dev": "nodemon server/index.js",
+    "server": "node index.js",
     "lint": "eslint .",
     "test": "jest --coverage"
   },
@@ -34,7 +35,6 @@
     "jest-puppeteer": "^3.3.1",
     "nodemon": "^1.18.4",
     "prettier": "^1.14.2",
-    "puppeteer": "^1.8.0",
     "regenerator-runtime": "^0.12.1",
     "webpack": "^4.17.2",
     "webpack-cli": "^3.1.0"
