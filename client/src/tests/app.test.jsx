@@ -3,7 +3,12 @@ import { shallow } from 'enzyme';
 import App from '../app';
 
 describe('App Component Testing', () => {
-  const app = shallow(<App />);
+  const app = shallow(<App match={{
+    params: {
+      id: '12345678',
+    },
+  }}
+  />);
 
   test('should render component', () => {
     expect(app.exists()).toBeTruthy();

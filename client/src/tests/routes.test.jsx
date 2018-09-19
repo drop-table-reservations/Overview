@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Routes from '../router';
+import Routes from '../routes';
 
 describe('App Component Testing', () => {
   const routes = shallow(<Routes />);
