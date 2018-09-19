@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const { pathname } = window.location;
+    const pathname = 'http://localhost:3000/restaurants/30590734/';
     axios.get(`${pathname}overview`).then((data) => {
       this.setState({
         data: data.data[0],
