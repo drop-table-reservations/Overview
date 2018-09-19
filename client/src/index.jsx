@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './globalStyles';
-import App from './app';
+import Routes from './routes';
 
 
-ReactDOM.render(<App />, document.getElementById('overview'));
+ReactDOM.render(<Routes />, document.getElementById('overview'));
