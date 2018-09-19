@@ -18,6 +18,6 @@ jobs:
       - run:
           name: test
           command: npm run test
-      # - run:
-      #     name: coverage
-      #     command: npm run send-coverage
+      - run:
+          name: coverage
+          command: npm run coverage
