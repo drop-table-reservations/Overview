@@ -7,11 +7,11 @@ const Header = (props) => {
     const { reviewAvg } = props.headerData;
     const stars = [];
     for (let i = 0; i < reviewAvg; i += 1) {
-      stars.push(<FaStar className="fa fa-star" />);
+      stars.push(<FaStar key={i} className="fa fa-star" />);
     }
 
     while (stars.length < 5) {
-      stars.push(<FaStar className="fa fa-star-o" />);
+      stars.push(<FaStar key={stars.length} className="fa fa-star-o" />);
     }
     return stars;
   };

@@ -65,29 +65,27 @@ export const StyledOverview = styled.div`
   align-items: center;
 `;
 
-export const OverviewCollapsed = styled.div`
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: auto repeat(1, 50%);
-  height: 375px;
-
-  &:after {
-    content: "";
-    position: absolute;
-    z-index: 1;
-    bottom: 1;
-    left: 0;
-    pointer-events: none;
-    background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255, 1) 90%);
-    width: 100%;
-    height: 375px;
-  }  
-`;
 
 export const OverviewContent = styled.div`
   display: grid;
   grid-template-columns: auto repeat(1, 50%);
   grid-column-gap: 10px;
+  ${props => (props.collapsed
+    ? `overflow: hidden;
+    height: 375px;
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      bottom: 1;
+      left: 0;
+      pointer-events: none;
+      background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255, 1) 90%);
+      width: 100%;
+      height: 375px;
+    }`
+    : ''
+  )}
 `;
 
 export const Detail = styled.div`
@@ -150,14 +148,22 @@ export const Items = styled.div`
 `;
 
 export const MenuButton = styled.button`
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 16px;
-  padding-right: 16px;
+  ${props => (
+    (props.active === props.i)
+      ? `padding-top: 7px;
+        padding-bottom: 7px;
+        padding-left: 15px;
+        padding-right: 15px;
+        border: 2px solid rgb(218, 55, 67);`
+      : `padding-top: 8px;
+        padding-bottom: 8px;
+        padding-left: 16px;
+        padding-right: 16px;
+        border: 1px solid #d8d9db;`
+  )}
   margin-right: 20px;
   margin-bottom: 20px;
   background: white;
-  border: 1px solid #d8d9db;
   font-size: 0.875rem;
   font-weight: 500;
   
@@ -174,14 +180,6 @@ export const MenuButton = styled.button`
   }
 `;
 
-export const Active = styled(MenuButton)`
-  padding-top: 7px;
-  padding-bottom: 7px;
-  padding-left: 15px;
-  padding-right: 15px;
-  border: 2px solid rgb(218, 55, 67);
-`;
-
 export const MenuTitles = styled.div`
   display: flex;
   justify-content: flex-start;
@@ -195,6 +193,24 @@ export const MenuList = styled.div`
   display: grid;
   grid-template-columns: auto repeat(1, 50%);
   grid-column-gap: 40px;
+  ${props => (
+    props.collapsed
+      ? `height: 400px;
+      overflow: hidden;
+
+      &:after {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        bottom: 1;
+        left: 0;
+        pointer-events: none;
+        background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255, 1) 90%);
+        width: 100%;
+        height: 400px;
+      }`
+      : ''
+  )}
 `;
 
 export const MenuCollapsed = styled.div`

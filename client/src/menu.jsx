@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 import {
   ExpandButton,
   Items,
-  Active,
   MenuButton,
   MenuTitles,
   MenuList,
-  MenuCollapsed,
   ButtonBox,
   H3,
 } from './styles';
@@ -32,10 +30,10 @@ class Menu extends Component {
   createMenuButtons() {
     const { menus } = this.props;
     const { active } = this.state;
-    return menus.map((menu, index) => (
-      active === index
-        ? <Active id={`${menu.title}`} onClick={() => this.setActiveMenu(index)}>{menu.title}</Active>
-        : <MenuButton id={`${menu.title}`} onClick={() => this.setActiveMenu(index)}>{menu.title}</MenuButton>
+    return menus.map((menu, i) => (
+      <MenuButton active={active} i={i} onClick={() => this.setActiveMenu(i)}>
+        {menu.title}
+      </MenuButton>
     ));
   }
 
@@ -64,10 +62,7 @@ class Menu extends Component {
       <div>
         <H3>Menu</H3>
         <MenuTitles>{this.createMenuButtons()}</MenuTitles>
-        {collapsed
-          ? <MenuCollapsed>{this.populateMenuItems()}</MenuCollapsed>
-          : <MenuList>{this.populateMenuItems()}</MenuList>
-        }
+        <MenuList collapsed={collapsed}>{this.populateMenuItems()}</MenuList>
         <ButtonBox>
           <ExpandButton onClick={() => this.handleExpansion()}>{buttonText}</ExpandButton>
         </ButtonBox>

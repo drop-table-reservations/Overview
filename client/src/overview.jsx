@@ -4,7 +4,6 @@ import Description from './description';
 import GoogleMaps from './googleMaps';
 import {
   StyledOverview,
-  OverviewCollapsed,
   OverviewContent,
   Detail,
   DetailTitle,
@@ -77,17 +76,15 @@ class Overview extends Component {
       })
     );
 
-    const Container = collapsed ? OverviewCollapsed : OverviewContent;
-
     return (
-      <Container>
+      <OverviewContent collapsed={collapsed}>
         <div>
           {mapper(leftContent)}
         </div>
         <div>
           {mapper(rightContent)}
         </div>
-      </Container>
+      </OverviewContent>
     );
   }
 
