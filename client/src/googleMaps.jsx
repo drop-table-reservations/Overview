@@ -3,11 +3,6 @@ import MapWithAMarker from './MapWithAMarker';
 import googleAPI from '../../googleAPI';
 
 class GoogleMaps extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   shouldComponentUpdate() {
     return false;
   }

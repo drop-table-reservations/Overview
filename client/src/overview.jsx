@@ -57,33 +57,31 @@ class Overview extends Component {
     ];
 
     const mapper = array => (
-      array.map((detail) => {
-        const content = detail[0];
-        const iconName = detail[1];
-        const title = detail[2];
-        if (content) {
-          return (
-            <DetailBox>
-              <Fa className={iconName} />
-              <Detail>
-                <DetailTitle>{title}</DetailTitle>
-                <div>{content}</div>
-              </Detail>
-            </DetailBox>
-          );
-        }
-        return <div />;
-      })
+      <div>
+        {array.map((detail) => {
+          const content = detail[0];
+          const iconName = detail[1];
+          const title = detail[2];
+          if (content) {
+            return (
+              <DetailBox>
+                <Fa className={iconName} />
+                <Detail>
+                  <DetailTitle>{title}</DetailTitle>
+                  <div>{content}</div>
+                </Detail>
+              </DetailBox>
+            );
+          }
+          return <div />;
+        })}
+      </div>
     );
 
     return (
       <OverviewContent collapsed={collapsed}>
-        <div>
-          {mapper(leftContent)}
-        </div>
-        <div>
-          {mapper(rightContent)}
-        </div>
+        {mapper(leftContent)}
+        {mapper(rightContent)}
       </OverviewContent>
     );
   }
