@@ -4,7 +4,8 @@
   "description": "Overview and menu module for DROP TABLE",
   "main": "index.js",
   "scripts": {
-    "react-dev": "webpack --watch",
+    "build-dev": "webpack --watch --config webpack.dev.js",
+    "build-prod": "webpack --config webpack.prod.js",
     "server-dev": "nodemon server/index.js",
     "server": "node index.js",
     "lint": "eslint .",
@@ -39,7 +40,8 @@
     "prettier": "^1.14.2",
     "regenerator-runtime": "^0.12.1",
     "webpack": "^4.17.2",
-    "webpack-cli": "^3.1.0"
+    "webpack-cli": "^3.1.0",
+    "webpack-merge": "^4.1.4"
   },
   "dependencies": {
     "axios": "^0.18.0",
