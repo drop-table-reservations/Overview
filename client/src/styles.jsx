@@ -3,19 +3,27 @@ import styled from 'styled-components';
 export const Container = styled.div`
   font-family:"BrandonText", Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
   -webkit-box-align: center;
+  -webkit-font-smoothing: antialiased;
   -ms-flex-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   max-width: 640px;
   padding: 0 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   margin-left: auto;
   margin-right: auto;
 `;
 
 export const H1 = styled.h1`
-  font-size: 32px;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  padding-top: 20px;
   padding-bottom: 20px;
+  margin-top: 5px;
+  border-top: 1px solid #d8d9db;
   border-bottom: 1px solid #d8d9db;
 `;
 
@@ -91,6 +99,16 @@ export const OverviewContent = styled.div`
 export const Detail = styled.div`
   padding-top: 5px;
   padding-bottom: 5px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+`;
+
+export const MapDetail = styled(Detail)`
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: #da3743;
+  font-weight: 600;
 `;
 
 export const DetailBox = styled.div`
@@ -98,10 +116,14 @@ export const DetailBox = styled.div`
   align-content: center;
 `;
 
+export const MapBox = styled(DetailBox)`
+  flex-direction: column;
+`;
+
 export const DetailTitle = styled.div`
-  padding-top: 5px;
-  padding-bottom: 5px;
   font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
 `;
 
 export const Fa = styled.i`
@@ -131,6 +153,10 @@ export const ExpandButton = styled.button`
   &:focus {
     outline: 0;
   }
+`;
+
+export const Map = styled.div`
+  margin-bottom: 16px;
 `;
 
 export const H3 = styled.h3`

@@ -4,10 +4,11 @@
   "description": "Overview and menu module for DROP TABLE",
   "main": "index.js",
   "scripts": {
-    "start": "node server/index.js",
+    "start": "nodemon server/index.js",
     "build-dev": "webpack --watch --config webpack.dev.js",
     "build-prod": "webpack --config webpack.prod.js",
-    "server-dev": "nodemon server/index.js",
+    "start-prod": "node server/index.js",
+    "db-loader": "node ./database/dbSeeder.js",
     "lint": "eslint .",
     "test": "jest --coverage",
     "coverage": "./node_modules/.bin/codecov"

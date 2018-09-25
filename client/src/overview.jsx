@@ -9,6 +9,8 @@ import {
   DetailTitle,
   DetailBox,
   Fa,
+  Map,
+  MapDetail,
   ExpandButton,
 } from './styles';
 
@@ -46,7 +48,7 @@ class Overview extends Component {
     ];
 
     const rightContent = [
-      [info.openGoogleMaps, '', <GoogleMaps />],
+      [info.openGoogleMaps, 'fa fa-location-arrow', <Map><GoogleMaps /></Map>],
       [info.Neighborhood, 'fa fa-building-o', 'Neighborhood'],
       [info.crossStreet, 'fa fa-road', 'Cross Street'],
       [info.parkingDetails, 'fa fa-product-hunt', 'Parking Details'],
@@ -62,6 +64,18 @@ class Overview extends Component {
           const content = detail[0];
           const iconName = detail[1];
           const title = detail[2];
+
+          if (iconName === 'fa fa-location-arrow') {
+            return (
+              <div>
+                {title}
+                <DetailBox>
+                  <Fa className={iconName} />
+                  <MapDetail>{content}</MapDetail>
+                </DetailBox>
+              </div>
+            );
+          }
           if (content) {
             return (
               <DetailBox>
