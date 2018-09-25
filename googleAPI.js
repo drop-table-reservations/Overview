@@ -1,5 +1,5 @@
 const googleAPI = {
-  key: 'INSERT GOOGLE API KEY HERE',
+  key: 'INSERT KEY HERE IF YOU WANT',
 };
 
 export default googleAPI;

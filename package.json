@@ -4,9 +4,11 @@
   "description": "Overview and menu module for DROP TABLE",
   "main": "index.js",
   "scripts": {
-    "react-dev": "webpack --watch",
-    "server-dev": "nodemon server/index.js",
-    "server": "node index.js",
+    "start": "nodemon server/index.js",
+    "build-dev": "webpack --watch --config webpack.dev.js",
+    "build-prod": "webpack --config webpack.prod.js",
+    "start-prod": "node server/index.js",
+    "db-loader": "node ./database/dbSeeder.js",
     "lint": "eslint .",
     "test": "jest --coverage",
     "coverage": "./node_modules/.bin/codecov"
@@ -22,7 +24,6 @@
     "babel-loader": "^8.0.2",
     "babel-plugin-styled-components": "^1.7.1",
     "codecov": "^3.1.0",
-    "cors": "^2.8.4",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
     "eslint": "^5.5.0",
@@ -39,9 +40,11 @@
     "prettier": "^1.14.2",
     "regenerator-runtime": "^0.12.1",
     "webpack": "^4.17.2",
-    "webpack-cli": "^3.1.0"
+    "webpack-cli": "^3.1.0",
+    "webpack-merge": "^4.1.4"
   },
   "dependencies": {
+    "cors": "^2.8.4",
     "axios": "^0.18.0",
     "express": "^4.16.3",
     "mongoose": "^5.2.13",

@@ -11,7 +11,6 @@ app.get('/api/restaurants/:restaurantId/overview', (req, res) => {
   const { restaurantId } = req.params;
   findOverview(restaurantId, (err, data) => {
     if (err) {
-      console.log(err);
       res.status(500);
       res.send('Error: ', err);
     } else {
@@ -22,7 +21,7 @@ app.get('/api/restaurants/:restaurantId/overview', (req, res) => {
 });
 
 app.get('/bundle.js', (req, res) => {
-  res.sendFile(path.resolve('public/bundle.js'));
+  res.sendFile(path.resolve('public/prod.bundle.js'));
 });
 
 app.get('*', (req, res) => {
@@ -31,6 +30,4 @@ app.get('*', (req, res) => {
 
 const port = 8008;
 
-app.listen(port, () => {
-  console.log(`listening on port ${port}`);
-});
+app.listen(port);
